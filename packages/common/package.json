@@ -1,0 +1,23 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "Common Stuffs",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "mkdir dist && cp ./src/index.js ./dist/index.js"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuburger/travis-ci-test.git"
+  },
+  "author": "Stuart Bourhill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stuburger/travis-ci-test/issues"
+  },
+  "homepage": "https://github.com/stuburger/travis-ci-test#readme"
+}

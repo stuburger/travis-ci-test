@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '10'
+stages:
+  - name: lint and test
+jobs:
+  include:
+    - stage: lint and test
+      name: lint
+      script: 
+        - lerna bootstrap
+        - yarn lint
+        - script:
+          - lerna bootstrap
+          - yarn test
+        name: test

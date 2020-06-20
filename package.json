@@ -1,0 +1,32 @@
+{
+  "name": "travis-ci-test",
+  "version": "1.0.0",
+  "description": "Learning travis ci",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo Testing the things!",
+    "lint": "echo Linting the things!",
+    "build": "lerna run build"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuburger/travis-ci-test.git"
+  },
+  "author": "Stuart Bourhill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stuburger/travis-ci-test/issues"
+  },
+  "homepage": "https://github.com/stuburger/travis-ci-test#readme",
+  "devDependencies": {
+    "lerna": "^3.20.2",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "common": "file:packages/common"
+  }
+}
