@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src", "types"],
+  "exclude": ["**/*.test.ts"],
+  "compilerOptions": {
+    "removeComments": true,
+    "declarationDir": "dist",
+    "target": "es5",
+    "outDir": "dist",
+    "lib": ["dom", "esnext"],
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "paths": {
+      "*": ["src/*", "node_modules/*"]
+    }
+  }
+}

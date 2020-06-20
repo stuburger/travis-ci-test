@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "mkdir dist && cp ./src/index.js ./dist/index.js"
+    "build": "tsc -p tsconfig.json && cp ./index.js ./dist/index.js"
   },
   "files": [
     "dist"
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/stuburger/travis-ci-test/issues"
   },
-  "homepage": "https://github.com/stuburger/travis-ci-test#readme"
+  "homepage": "https://github.com/stuburger/travis-ci-test#readme",
+  "devDependencies": {
+    "typescript": "^3.9.5"
+  }
 }

@@ -21,4 +21,5 @@ jobs:
       script:
         - lerna bootstrap
         - yarn build
-        - ls ./packages/common
+        - cat ./packages/common/dist/index.js
+
