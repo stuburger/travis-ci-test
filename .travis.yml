@@ -3,6 +3,7 @@ node_js:
   - '10'
 stages:
   - name: lint and test
+  - publish: deploy stage
 
 jobs:
   include:
@@ -15,3 +16,9 @@ jobs:
         - lerna bootstrap
         - yarn test
       name: test
+    - stage: deploy stage
+      name: deploy stage [name]
+      script:
+        - lerna bootstrap
+        - yarn build
+        - ls ./packages/common
