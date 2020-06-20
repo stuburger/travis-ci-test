@@ -3,14 +3,15 @@ node_js:
   - '10'
 stages:
   - name: lint and test
+
 jobs:
   include:
     - stage: lint and test
       name: lint
-      script: 
+      script:
         - lerna bootstrap
         - yarn lint
-        - script:
-          - lerna bootstrap
-          - yarn test
-        name: test
+    - script:
+        - lerna bootstrap
+        - yarn test
+      name: test
