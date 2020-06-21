@@ -24,7 +24,7 @@ jobs:
       name: deploy latest
       script:
         - lerna bootstrap
-        # - yarn build
+        - yarn build
       before_deploy:
         - cat ./packages/common/dist/index.js
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
@@ -39,7 +39,7 @@ jobs:
       name: deploy next
       script:
         - lerna bootstrap
-        # - yarn build
+        - yarn build
       before_deploy:
         - cat ./packages/common/dist/index.js
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null

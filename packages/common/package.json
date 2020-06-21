@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "tsc -p tsconfig.json",
-    "prepublish": "yarn build"
+    "build": "tsc -p tsconfig.json"
   },
   "files": [
     "dist"

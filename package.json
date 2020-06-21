@@ -8,8 +8,7 @@
     "lint": "echo Linting the things!",
     "build": "lerna run build",
     "publish": "lerna publish from-git --yes --dist-tag latest",
-    "publish:next": "lerna publish from-git --yes --dist-tag next",
-    "prepublish": "lerna run prepublish"
+    "publish:next": "lerna publish from-git --yes --dist-tag next"
   },
   "private": true,
   "workspaces": [
