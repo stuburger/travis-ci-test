@@ -1,6 +1,6 @@
 {
-  "name": "common",
-  "version": "0.0.1",
+  "name": "do-not-use-meow",
+  "version": "1.0.0",
   "description": "Common Stuffs",
   "main": "index.js",
   "scripts": {
