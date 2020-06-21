@@ -1,6 +1,6 @@
 {
   "name": "do-not-use-meow",
-  "version": "0.0.2-alpha.5",
+  "version": "0.0.2-alpha.4",
   "description": "Common Stuffs",
   "main": "dist/index.js",
   "scripts": {
