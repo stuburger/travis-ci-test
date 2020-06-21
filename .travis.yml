@@ -9,7 +9,7 @@ jobs:
   include:
     # - stage: lint and test
     #   name: lint
-    #   before_script: 
+    #   before_script:
     #     - echo $NPM_TOKEN
     #   script:
     #     - lerna bootstrap
@@ -28,10 +28,11 @@ jobs:
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
       deploy:
         provider: script
-        script: "yarn run publish"
+        script: 'yarn run publish'
         skip_cleanup: true
         on:
-          node: "10"
+          node: '10'
+          tags: true
     - stage: deploy stage
       name: deploy stage [name]
       script:
@@ -42,7 +43,7 @@ jobs:
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
       deploy:
         provider: script
-        script: "yarn run publish:canary"
+        script: 'yarn run publish:canary'
         skip_cleanup: true
         on:
-          node: "10"
+          node: '10'
