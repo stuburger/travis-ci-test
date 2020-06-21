@@ -28,23 +28,21 @@ jobs:
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
       deploy:
         provider: script
+        script: "yarn run publish"
+        skip_cleanup: true
+        on:
+          node: "10"
+    - stage: deploy stage
+      name: deploy stage [name]
+      script:
+        - lerna bootstrap
+        - yarn build
+      before_deploy:
+        - cat ./packages/common/dist/index.js
+        - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+      deploy:
+        provider: script
         script: "yarn run publish:canary"
         skip_cleanup: true
         on:
           node: "10"
-          # tags: true
-    # - stage: deploy canary
-    #   name: deploy canary
-    #   script:
-    #     - lerna bootstrap
-    #     - yarn build
-    # - before_deploy:
-    #     - cat ./packages/common/dist/index.js
-    #     - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
-    #   deploy:
-    #     provider: script
-    #     script: "yarn run publish:canary"
-    #     skip_cleanup: true
-    #     on:
-    #       node: "10"
-
