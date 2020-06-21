@@ -9,6 +9,8 @@ jobs:
   include:
     - stage: lint and test
       name: lint
+      before_script: 
+        - echo $NPM_TOKEN
       script:
         - lerna bootstrap
         - yarn lint
