@@ -9,7 +9,7 @@
     "build": "lerna run build",
     "publish:ci": "# yarn build && lerna publish --canary --yes",
     "publish": "lerna publish from-git --yes --dist-tag latest",
-    "publish:canary": "lerna publish --yes --canary --dist-tag alpha"
+    "publish:canary": "lerna publish --yes --canary --dist-tag alpha --preid blah"
   },
   "private": true,
   "workspaces": [
