@@ -19,8 +19,8 @@ jobs:
     #     - lerna bootstrap
     #     - yarn test
     #   name: test
-    - if: branch = master
-      stage: deploy
+    - stage: deploy
+      if: branch = master
       name: deploy latest
       script:
         - lerna bootstrap
@@ -31,10 +31,11 @@ jobs:
       deploy:
         provider: script
         script: 'yarn run publish'
-        skip_cleanup: true
+        cleanup: false
         on:
           node: '10'
           tags: true
+    - stage: deploy
       name: deploy next
       script:
         - lerna bootstrap
@@ -45,7 +46,7 @@ jobs:
       deploy:
         provider: script
         script: 'yarn run publish:next'
-        skip_cleanup: true
+        cleanup: false
         on:
           node: '10'
           all_branches: true

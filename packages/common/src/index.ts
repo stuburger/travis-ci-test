@@ -6,6 +6,6 @@ export const multiply = (a: number, b: number) => {
   return a * b
 }
 export const divide = (a: number, b: number) => {
-  // console.log(a / b, 'a / b')
+  console.log(a / b, 'a / b')
   return a / b
 }
