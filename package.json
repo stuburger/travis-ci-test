@@ -7,10 +7,9 @@
     "test": "echo Testing the things!",
     "lint": "echo Linting the things!",
     "build": "lerna run build",
-    "publish:ci": "# yarn build && lerna publish --canary --yes",
     "publish": "lerna publish from-git --yes --dist-tag latest",
-    "prepublish": "lerna run prepublish",
-    "publish:canary": "lerna version prerelease --preid canary --force-publish"
+    "publish:next": "lerna publish from-git --yes --dist-tag next",
+    "prepublish": "lerna run prepublish"
   },
   "private": true,
   "workspaces": [

@@ -3,7 +3,8 @@ node_js:
   - '10'
 # stages:
 #   - name: lint and test
-#   - publish: deploy stage
+#   - name: deploy
+#     if branch = master
 
 jobs:
   include:
@@ -18,11 +19,12 @@ jobs:
     #     - lerna bootstrap
     #     - yarn test
     #   name: test
-    - stage: deploy stage
-      name: deploy stage [name]
+    - if: branch = master
+      stage: deploy
+      name: deploy latest
       script:
         - lerna bootstrap
-        - yarn build
+        # - yarn build
       before_deploy:
         - cat ./packages/common/dist/index.js
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
@@ -33,17 +35,16 @@ jobs:
         on:
           node: '10'
           tags: true
-    - stage: deploy stage
-      name: deploy stage [name]
+      name: deploy next
       script:
         - lerna bootstrap
-        - yarn build
+        # - yarn build
       before_deploy:
         - cat ./packages/common/dist/index.js
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
       deploy:
         provider: script
-        script: 'yarn run publish:canary'
+        script: 'yarn run publish:next'
         skip_cleanup: true
         on:
           node: '10'
