@@ -8,7 +8,8 @@
     "lint": "echo Linting the things!",
     "build": "lerna run build",
     "publish:ci": "# yarn build && lerna publish --canary --yes",
-    "lerna:publish": "lerna publish from-git --yes --dist-tag beta"
+    "publish": "lerna publish from-git --yes --dist-tag latest",
+    "publish:canary": "lerna publish from-git --yes --canary"
   },
   "private": true,
   "workspaces": [
