@@ -7,17 +7,17 @@ node_js:
 
 jobs:
   include:
-    - stage: lint and test
-      name: lint
-      before_script: 
-        - echo $NPM_TOKEN
-      script:
-        - lerna bootstrap
-        - yarn lint
-    - script:
-        - lerna bootstrap
-        - yarn test
-      name: test
+    # - stage: lint and test
+    #   name: lint
+    #   before_script: 
+    #     - echo $NPM_TOKEN
+    #   script:
+    #     - lerna bootstrap
+    #     - yarn lint
+    # - script:
+    #     - lerna bootstrap
+    #     - yarn test
+    #   name: test
     - stage: deploy stage
       name: deploy stage [name]
       script:
@@ -33,6 +33,11 @@ jobs:
         on:
           node: "10"
           tags: true
+    - stage: deploy canary
+      name: deploy canary
+      script:
+        - lerna bootstrap
+        - yarn build
     - before_deploy:
         - cat ./packages/common/dist/index.js
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
