@@ -7,7 +7,8 @@
     "test": "echo Testing the things!",
     "lint": "echo Linting the things!",
     "build": "lerna run build",
-    "publish:ci": "yarn build && lerna publish --canary --yes"
+    "publish:ci": "# yarn build && lerna publish --canary --yes",
+    "lerna:publish": "lerna publish from-git --yes --dist-tag beta"
   },
   "private": true,
   "workspaces": [
