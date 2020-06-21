@@ -2,7 +2,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "jsx": "react",
-    "module": "esnext",
+    "module": "commonjs",
     "strict": true,
     "pretty": true,
     "importHelpers": true,
