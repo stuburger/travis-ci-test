@@ -47,3 +47,4 @@ jobs:
         skip_cleanup: true
         on:
           node: '10'
+          all_branches: true
