@@ -48,4 +48,4 @@ jobs:
         on:
           node: '10'
           tags: true
-          # all_branches: true
+          all_branches: true
