@@ -7,45 +7,20 @@ node_js:
 
 jobs:
   include:
-    # - stage: lint and test
-    #   name: lint
-    #   before_script:
-    #     - echo $NPM_TOKEN
-    #   script:
-    #     - lerna bootstrap
-    #     - yarn lint
-    # - script:
-    #     - lerna bootstrap
-    #     - yarn test
-    #   name: test
-    - stage: deploy stage
-      name: deploy stage [name]
+    - stage: "beta release"
+      if: branch = master
+      node_js: '10'
       script:
         - lerna bootstrap
-        - yarn build
-      before_deploy:
-        - cat ./packages/common/dist/index.js
+        - lerna run build
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
-      deploy:
-        provider: script
-        script: 'yarn run publish'
-        skip_cleanup: true
-        on:
-          node: '10'
-          # tags: true
-    - stage: deploy stage
-      name: deploy stage [name]
+        - lerna publish from-git --yes --dist-tag beta
+
+    - stage: "release"
+      if: tag IS present
+      node_js: '10'
       script:
         - lerna bootstrap
-        - yarn build
-      before_deploy:
-        - cat ./packages/common/dist/index.js
+        - lerna run build
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
-      deploy:
-        provider: script
-        script: 'yarn run lerna publish from-git --dist-tag canary --yes'
-        skip_cleanup: true
-        on:
-          node: '10'
-          tags: true
-          all_branches: true
+        - lerna publish from-git --yes --dist-tag beta
