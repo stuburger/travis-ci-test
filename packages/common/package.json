@@ -25,5 +25,6 @@
   "homepage": "https://github.com/stuburger/travis-ci-test#readme",
   "devDependencies": {
     "typescript": "^3.9.5"
-  }
+  },
+  "gitHead": "f7e253382705a110a916ea55f382a2e770d77494"
 }
