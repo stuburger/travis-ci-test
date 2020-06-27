@@ -18,7 +18,7 @@ jobs:
         - lerna publish -y --canary --preid canary --dist-tag=canary
 
     - stage: "release"
-      if: NOT tag ~= canary
+      if: tag IS present AND NOT tag ~= canary
       node_js: '10'
       script:
         - lerna bootstrap
