@@ -8,19 +8,20 @@ node_js:
 jobs:
   include:
     - stage: "beta release"
-      if: branch = master
+      if: tag ~= canary
       node_js: '10'
       script:
+        - echo Publishing canary release...
         - lerna bootstrap
         - lerna run build
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
-        - lerna publish from-git --yes --dist-tag beta
+        - lerna publish -y --canary --preid canary --dist-tag=canary
 
     - stage: "release"
-      if: tag IS present
+      if: NOT tag ~= canary
       node_js: '10'
       script:
         - lerna bootstrap
         - lerna run build
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
-        - lerna publish from-git --yes --dist-tag beta
+        - lerna publish from-git --yes --dist-tag latest
