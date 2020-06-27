@@ -10,7 +10,7 @@
     "publish": "lerna publish from-git --yes --dist-tag latest",
     "publish:next": "lerna publish from-git --yes --dist-tag next",
     "publish-canary": "lerna version prerelease --preid canary --force-publish",
-    "publish-stable": "lerna version --force-publish"
+    "publish-stable": "lerna version --force-publish && release"
   },
   "private": true,
   "workspaces": [
