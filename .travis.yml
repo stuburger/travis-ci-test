@@ -8,7 +8,7 @@ node_js:
 jobs:
   include:
     - stage: "beta release"
-      if: tag IS present AND tag ~= canary
+      if: tag ~= canary
       node_js: '10'
       script:
         - echo Publishing canary release...
